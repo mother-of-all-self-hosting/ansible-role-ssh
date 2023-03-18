@@ -5,10 +5,6 @@
     state: present
     key: "{{ item }}"
   with_items: "{{ system_security_ssh_authorizedkeys }}"
-  tags:
-    - setup-all
-    - security-ssh
-    - rotate-ssh-keys
 
 - name: Revoke authorized keys
   ansible.posix.authorized_key:
@@ -16,10 +12,6 @@
     state: absent
     key: "{{ item }}"
   with_items: "{{ system_security_ssh_unauthorizedkeys }}"
-  tags:
-    - setup-all
-    - security-ssh
-    - rotate-ssh-keys
 
 - name: Enforce sshd config
   ansible.builtin.template:
