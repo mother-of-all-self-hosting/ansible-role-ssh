@@ -1,0 +1,8 @@
+---
+- ansible.builtin.include_tasks: "{{ role_path }}/tasks/ssh.yml"
+  when: system_security_ssh_enabled | bool
+  tags:
+    - setup-all
+    - setup-ssh
+    - install-all
+    - install-ssh
