@@ -1,12 +1,5 @@
 ---
 - block:
-  when: system_security_ssh_enabled | bool
-  tags:
-    - setup-all
-    - setup-ssh
-    - install-all
-    - install-ssh
-
   - name: Add authorized keys
     ansible.posix.authorized_key:
       user: "{{ ansible_user }}"
@@ -29,3 +22,9 @@
       owner: root
       group: root
     notify: Reload sshd
+  tags:
+    - setup-all
+    - setup-ssh
+    - install-all
+    - install-ssh
+  when: system_security_ssh_enabled | bool
