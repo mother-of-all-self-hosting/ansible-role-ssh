@@ -1,33 +1,27 @@
 ## {{ ansible_managed }}
 
-AcceptEnv LANG LC_*
-AllowStreamLocalForwarding no
-AllowTcpForwarding no
-AuthorizedKeysFile	.ssh/authorized_keys /var/ssh/%u
-ChallengeResponseAuthentication no
-ClientAliveInterval 120
-LoginGraceTime 0
-Compression no
-GatewayPorts no
-IgnoreRhosts yes
-MaxAuthTries 3
-PasswordAuthentication {% if system_security_ssh_passwordauth|bool %}yes{% else %}no{% endif %}
+AcceptEnv {{ system_security_ssh_AcceptEnv }}
+AllowStreamLocalForwarding {{ 'yes' if system_security_ssh_AllowStreamLocalForwarding|bool else 'no' }}
+AllowTcpForwarding {{ 'yes' if system_security_ssh_AllowTcpForwarding|bool else 'no' }}
+AuthorizedKeysFile {{ system_security_ssh_AuthorizedKeysFile }}
+ChallengeResponseAuthentication {{ 'yes' if system_security_ssh_ChallengeResponseAuthentication|bool else 'no' }}
+ClientAliveInterval {{ system_security_ssh_ClientAliveInterval }}
+Compression {{ 'yes' if system_security_ssh_Compression|bool else 'no' }}
+GatewayPorts {{ 'yes' if system_security_ssh_GatewayPorts|bool else 'no' }}
+IgnoreRhosts {{ 'yes' if system_security_ssh_IgnoreRhosts|bool else 'no' }}
+MaxAuthTries {{ system_security_ssh_MaxAuthTries }}
+PasswordAuthentication {{ 'yes' if system_security_ssh_passwordauth|bool else 'no' }}
 
-MACs -umac-64-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
-KexAlgorithms -ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group14-sha256
-HostKeyAlgorithms -ecdsa-sha2-nistp256
+PermitEmptyPasswords {{ 'yes' if system_security_ssh_PermitEmptyPasswords|bool else 'no' }}
+PermitRootLogin {{ 'yes' if system_security_ssh_rootlogin|bool else 'no' }}
 
-PermitEmptyPasswords no
-PermitRootLogin {% if system_security_ssh_rootlogin|bool %}yes{% else %}no{% endif %}
-
-PermitTunnel no
+PermitTunnel {{ 'yes' if system_security_ssh_PermitTunnel|bool else 'no' }}
 Port {{ system_security_ssh_port }}
-PrintLastLog no
-PrintMotd no
-PubkeyAuthentication yes
-Subsystem	sftp	/usr/lib/openssh/sftp-server
-UseDNS no
-UsePAM yes
-X11Forwarding no
-
+PrintLastLog {{ 'yes' if system_security_ssh_PrintLastLog|bool else 'no' }}
+PrintMotd {{ 'yes' if system_security_ssh_PrintMotd|bool else 'no' }}
+PubkeyAuthentication {{ 'yes' if system_security_ssh_PubkeyAuthentication|bool else 'no' }}
+Subsystem	sftp	{{ system_security_ssh_sftp_server }}
+UseDNS {{ 'yes' if system_security_ssh_UseDNS|bool else 'no' }}
+UsePAM {{ 'yes' if system_security_ssh_UsePAM|bool else 'no' }}
+X11Forwarding {{ 'yes' if system_security_ssh_X11Forwarding|bool else 'no' }}
 {{ system_security_ssh_extension }}

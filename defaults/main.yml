@@ -36,6 +36,62 @@ system_security_ssh_unauthorizedkeys_host: []
 # note: for group vars, use system_security_ssh_unauthorizedkeys_auto
 system_security_ssh_unauthorizedkeys: "{{ system_security_ssh_unauthorizedkeys_auto + system_security_ssh_unauthorizedkeys_host }}"
 
+# AcceptEnv value
+system_security_ssh_AcceptEnv: 'LANG LC_*'
+
+# AllowStreamLocalForwarding: true - allow, false - block
+system_security_ssh_AllowStreamLocalForwarding: false
+
+# AllowTcpForwarding: true - allow, false - block
+system_security_ssh_AllowTcpForwarding: false
+
+# AuthorizedKeysFile path
+system_security_ssh_AuthorizedKeysFile: '.ssh/authorized_keys /var/ssh/%u'
+
+# ChallengeResponseAuthentication: true - allow, false - block
+system_security_ssh_ChallengeResponseAuthentication: false
+
+# ClientAliveInterval value
+system_security_ssh_ClientAliveInterval: 120
+
+# Compression: true - allow, false - block
+system_security_ssh_Compression: false
+
+# GatewayPorts: true - allow, false - block
+system_security_ssh_GatewayPorts: false
+
+# IgnoreRhosts: true - allow, false - block
+system_security_ssh_IgnoreRhosts: true
+
+# MaxAuthTries value
+system_security_ssh_MaxAuthTries: 3
+
+# PermitEmptyPasswords: true - allow, false - block
+system_security_ssh_PermitEmptyPasswords: false
+
+# PermitTunnel: true - allow, false - block
+system_security_ssh_PermitTunnel: false
+
+system_security_ssh_X11Forwarding: false
+
+# PrintLastLog: true - allow, false - block
+system_security_ssh_PrintLastLog: false
+
+# PrintMotd: true - allow, false - block
+system_security_ssh_PrintMotd: false
+
+# PubkeyAuthentication: true - allow, false - block
+system_security_ssh_PubkeyAuthentication: true
+
+# sftp server path
+system_security_ssh_sftp_server: '/usr/lib/openssh/sftp-server'
+
+# UseDNS: true - allow, false - block
+system_security_ssh_UseDNS: false
+
+# UsePAM: true - allow, false - block
+system_security_ssh_UsePAM: true
+
 # Additional configuration variables to pass to the sshd config
 #
 # Example:
