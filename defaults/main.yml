@@ -14,6 +14,9 @@ system_security_ssh_passwordauth: false
 # ssh root login: true - allow, false - block
 system_security_ssh_rootlogin: true
 
+# Allow TCP forwarding: true - allow, false - block
+system_security_ssh_allow_tcp_forwarding: false
+
 # (intended for group vars) list of public ssh keys, allowed to connect to the server
 system_security_ssh_authorizedkeys_auto: []
 
