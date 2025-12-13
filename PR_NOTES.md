@@ -1,6 +1,0 @@
-# PR notes
-
-- Added `system_security_ssh_allow_tcp_forwarding` toggle (default `false`) and wired it into `sshd_config` template; goal is to let consumers enable TCP forwarding without duplicating directives via `system_security_ssh_extension`.
-- Tidied tasks for lint/best-practice: named blocks, FQCN for modules, quoted modes.
-- Updated metadata accuracy: `role_name: ssh`, restored Archlinux platform entry, noted EL remains at your existing `7` (ansible-lint schema will complain; feel free to switch to a specific minor or `all` if you prefer).
-- Raised `min_ansible_version` to `2.12` to reflect reliance on modern ansible-core/FQCN usage; older `2.1` would not realistically work.
