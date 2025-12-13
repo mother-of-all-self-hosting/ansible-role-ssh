@@ -2,8 +2,7 @@
 
 AcceptEnv LANG LC_*
 AllowStreamLocalForwarding no
-AllowTcpForwarding {% if system_security_ssh_allow_tcp_forwarding|bool %}yes{% else %}no{% endif %}
-
+AllowTcpForwarding {{ 'yes' if system_security_ssh_allow_tcp_forwarding|bool else 'no' }}
 AuthorizedKeysFile	.ssh/authorized_keys /var/ssh/%u
 ChallengeResponseAuthentication no
 ClientAliveInterval 120
