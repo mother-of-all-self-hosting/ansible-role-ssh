@@ -2,8 +2,17 @@
 
 This role manages sshd configuration and authorized/unauthorized SSH keys.
 
+<<<<<<< HEAD
 > **NOTE**: See [`defaults/main.yml`](./defaults/main.yml) for the full list of variables and defaults.  
 > Useful references: sshd_config manual (https://man.openbsd.org/sshd_config), Mozilla OpenSSH guidelines (https://infosec.mozilla.org/guidelines/openssh), openSUSE SSH guide (https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-ssh.html#ex-sshd-conf)
+=======
+> **NOTE**: check [defaults/main.yml](./defaults/main.yml) to see full list of config options
+>
+> Useful references for option semantics and hardening:
+> - sshd_config manual: https://man.openbsd.org/sshd_config
+> - OpenSSH manuals: https://www.openssh.com/manual.html
+> - Mozilla OpenSSH guidelines: https://infosec.mozilla.org/guidelines/openssh
+>>>>>>> e2c4365 (Add external references for sshd options)
 
 Common options:
 - `system_security_ssh_allow_tcp_forwarding` (bool, default `false`): controls `AllowTcpForwarding`; enable for SSH tunnels/VS Code Remote
