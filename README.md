@@ -10,7 +10,6 @@ This role manages sshd configuration and authorized/unauthorized SSH keys.
 >
 > Useful references for option semantics and hardening:
 > - sshd_config manual: https://man.openbsd.org/sshd_config
-> - OpenSSH manuals: https://www.openssh.com/manual.html
 > - Mozilla OpenSSH guidelines: https://infosec.mozilla.org/guidelines/openssh
 <<<<<<< HEAD
 >>>>>>> e2c4365 (Add external references for sshd options)
