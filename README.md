@@ -96,7 +96,7 @@ These options are **disabled by default** to reduce attack surface.
     * SSH local or remote port forwarding
     * VS Code Remote / Remote Tunnels
 
-* `system_security_ssh_allow_stream_local_forwarding` (bool, default: `false`)
+* `system_security_ssh_allow_streamlocal_forwarding` (bool, default: `false`)
 
   * Controls `AllowStreamLocalForwarding`.
 
