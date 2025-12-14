@@ -8,9 +8,6 @@ system_security_ssh_services: ["sshd", "ssh"]
 # ssh port
 system_security_ssh_port: 22
 
-# AllowTcpForwarding: true - allow, false - block
-system_security_ssh_allow_tcp_forwarding: false
-
 # AcceptEnv settings
 system_security_ssh_accept_env: 'LANG LC_*'
 
@@ -88,6 +85,9 @@ system_security_ssh_use_pam: true
 
 # X11Forwarding: true - allow, false - block
 system_security_ssh_x11_forwarding: false
+
+# Allow TCP forwarding: true - allow, false - block
+system_security_ssh_allow_tcp_forwarding: false
 
 # (intended for group vars) list of public ssh keys, allowed to connect to the server
 system_security_ssh_authorizedkeys_auto: []
