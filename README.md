@@ -33,6 +33,7 @@ When enabled, this role:
 * `system_security_ssh_port` (int, default: `22`)
 
   * SSH daemon listening port.
+  * ⚠️ **Has no effect on hosts where `sshd` is socket-activated**, which is the default on Ubuntu 24.04 and newer. There the listening port comes from `ssh.socket`'s `ListenStream=` and `sshd` is handed that socket, so the `Port` directive this role writes is ignored. Change the port on the socket unit instead (a `systemd` drop-in for `ssh.socket`), or disable `ssh.socket` and enable `ssh.service`. On Debian 13 with `ssh.socket` enabled by hand, the reload at the end of this role fails outright; see [`molecule/README.md`](./molecule/README.md) for the details.
 
 ---
 
@@ -337,6 +338,12 @@ system_security_ssh_extension: |
   * [sshd_config manual](https://man.openbsd.org/sshd_config)
   * [Mozilla OpenSSH guidelines](https://infosec.mozilla.org/guidelines/openssh)
   * [openSUSE SSH guide](https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-ssh.html#ex-sshd-conf)
+
+---
+
+## Testing
+
+The role has a [Molecule](https://ansible.readthedocs.io/projects/molecule/) test suite. See [`molecule/README.md`](./molecule/README.md) for what it covers, what it deliberately does not, and how to run it.
 
 ---
 
