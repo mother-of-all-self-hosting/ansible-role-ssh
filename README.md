@@ -334,6 +334,18 @@ system_security_ssh_extension: |
 * Security-sensitive features (forwarding, tunnels, X11) are **disabled by default**.
 * Always validate changes using `sshd -t` after applying custom extensions.
 * Useful references:
-  * sshd_config manual: https://man.openbsd.org/sshd_config
-  * Mozilla OpenSSH guidelines: https://infosec.mozilla.org/guidelines/openssh
-  * openSUSE SSH guide: https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-ssh.html#ex-sshd-conf
+  * [sshd_config manual](https://man.openbsd.org/sshd_config)
+  * [Mozilla OpenSSH guidelines](https://infosec.mozilla.org/guidelines/openssh)
+  * [openSUSE SSH guide](https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-ssh.html#ex-sshd-conf)
+
+---
+
+## Development
+
+You can optionally install a Git pre-commit hook (via [mise](https://mise.jdx.dev/) + [prek](https://prek.j178.dev/)) that runs formatting and linting checks before each commit. See [`.pre-commit-config.yaml`](./.pre-commit-config.yaml) for which hooks are to be executed.
+
+To install the hook, run the [`just`](https://github.com/casey/just) command below:
+
+```sh
+just prek-install-git-pre-commit-hook
+```
